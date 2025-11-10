@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Golfovski Code Hub - комплексная образовательная платформа для начинающих программистов. Бесплатные уроки, проекты, исправление ошибок и карьерные рекомендации.">
+    <meta name="keywords" content="Golfovski Code Hub, программирование, обучение, Python, JavaScript, Java, C++, ошибки программирования, начинающим">
+    <title>Golfovski Code Hub - Образовательная платформа для программистов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: var(--gradient);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 4em;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.4em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            font-size: 1.1em;
+        }
+
+        .nav-links a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-radius: 25px;
+            padding: 80px 50px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .hero h2 {
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        .code-icon {
+            font-size: 5em;
+            margin: 30px 0;
+            color: var(--secondary);
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Content Sections */
+        .section {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .lang-card {
+            text-align: center;
+            background: white;
+            border: 2px solid var(--light);
+        }
+
+        .error-card {
+            background: #ffeaa7;
+            border-left: 5px solid var(--warning);
+        }
+
+        .solution-card {
+            background: #d1ecf1;
+            border-left: 5px solid var(--success);
+        }
+
+        /* Icons */
+        .icon-large {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+        }
+
+        .icon-medium {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        /* Learning Path */
+        .path-container {
+            position: relative;
+            margin: 40px 0;
+        }
+
+        .path-line {
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .path-step {
+            display: flex;
+            align-items: center;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .step-number {
+            background: var(--secondary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-right: 30px;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+            background: var(--light);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--success);
+        }
+
+        /* Code Examples */
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .code-keyword { color: #ff79c6; }
+        .code-function { color: #50fa7b; }
+        .code-string { color: #f1fa8c; }
+        .code-comment { color: #6272a4; }
+        .code-number { color: #bd93f9; }
+
+        /* Error Examples */
+        .error-example {
+            background: #fed7d7;
+            border: 2px solid #feb2b2;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .correct-example {
+            background: #c6f6d5;
+            border: 2px solid #9ae6b4;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        /* Progress Bars */
+        .skill-bar {
+            margin: 15px 0;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-progress {
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 10px;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+
+        /* Career Section */
+        .job-roles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .job-role {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid var(--light);
+            text-align: center;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            margin: 30px 0;
+        }
+
+        .faq-item {
+            background: var(--light);
+            margin: 15px 0;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--warning);
+        }
+
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero h2 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 30px 20px;
+            }
+            
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="animate-fade-in">
+            <div class="logo">💻</div>
+            <h1>Golfovski Code Hub</h1>
+            <p class="tagline">Комплексная образовательная экосистема для программистов любого уровня</p>
+        </header>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#languages">Языки программирования</a></li>
+                <li><a href="#errors">Распространённые ошибки</a></li>
+                <li><a href="#learning">Путь обучения</a></li>
+                <li><a href="#projects">Практические проекты</a></li>
+                <li><a href="#tools">Инструменты</a></li>
+                <li><a href="#algorithms">Алгоритмы</a></li>
+                <li><a href="#career">Карьера</a></li>
+                <li><a href="#about">О проекте</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero animate-fade-in">
+            <h2>🚀 Превратитесь из новичка в востребованного специалиста</h2>
+            <p>Полный путь обучения: от основ программирования до трудоустройства в IT</p>
+            <div class="code-icon">{"</>"}</div>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <h3>25+</h3>
+                    <p>языков программирования</p>
+                </div>
+                <div class="stat-card">
+                    <h3>50+</h3>
+                    <p>распространённых ошибок</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100+</h3>
+                    <p>практических проектов</p>
+                </div>
+                <div class="stat-card">
+                    <h3>1000+</h3>
+                    <p>часов обучающих материалов</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Языки программирования -->
+        <section id="languages" class="section">
+            <h2 class="section-title">🎯 Языки программирования</h2>
+            
+            <div class="grid-3">
+                <div class="card lang-card">
+                    <div class="icon-large">🐍</div>
+                    <h3>Python</h3>
+                    <p>Универсальный язык для веб-разработки, Data Science, AI и автоматизации</p>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Популярность</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.python.org/" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Официальный сайт →</a>
+                    </div>
+                </div>
+
+                <div class="card lang-card">
+                    <div class="icon-large">📊</div>
+                    <h3>JavaScript</h3>
+                    <p>Основной язык веб-разработки: фронтенд, бэкенд, мобильные приложения</p>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Популярность</span>
+                            <span>98%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-level" style="width: 98%"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://developer.mozilla.org/ru/docs/Web/JavaScript" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Документация →</a>
+                    </div>
+                </div>
+
+                <div class="card lang-card">
+                    <div class="icon-large">☕</div>
+                    <h3>Java</h3>
+                    <p>Мощный язык для enterprise-приложений, Android и высоконагруженных систем</p>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Популярность</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.java.com/ru/" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Официальный сайт →</a>
+                    </div>
+                </div>
+
+                <div class="card lang-card">
+                    <div class="icon-large">⚡</div>
+                    <h3>C++</h3>
+                    <p>Высокопроизводительный язык для игр, системного программирования</p>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Популярность</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://isocpp.org/" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Официальный сайт →</a>
+                    </div>
+                </div>
+
+                <div class="card lang-card">
+                    <div class="icon-large">🔗</div>
+                    <h3>C#</h3>
+                    <p>Разработка под Windows, игры на Unity, enterprise-решения</p>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Популярность</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-level" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://dotnet.microsoft.com/ru-ru/languages/csharp" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Официальный сайт →</a>
+                    </div>
+                </div>
+
+                <div class="card lang-card">
+                    <div class="icon-large">🚀</div>
+                    <h3>Go</h3>
+                    <p>Современный язык для микросервисов и высоконагруженных систем</p>
+                    <div class="skill-bar">
+                        <div class="skill-name">
+                            <span>Популярность</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-level" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://golang.org/" target="_blank" style="color: var(--secondary); text-decoration: none; font-weight: bold;">Официальный сайт →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Распространённые ошибки -->
+        <section id="errors" class="section">
+            <h2 class="section-title">❌ Распространённые ошибки начинающих</h2>
+            
+            <div class="grid-2">
+                <div class="card error-card">
+                    <h3>🔴 Ошибка: Игнорирование основ</h3>
+                    <p><strong>Проблема:</strong> Попытка сразу изучать фреймворки без понимания основ языка</p>
+                    <div class="error-example">
+                        <strong>Неправильно:</strong><br>
+                        Сразу начать изучать React без знания JavaScript
+                    </div>
+                    <div class="correct-example">
+                        <strong>Правильно:</strong><br>
+                        Сначала освоить JavaScript: синтаксис, функции, DOM, затем переходить к фреймворкам
+                    </div>
+                </div>
+
+                <div class="card error-card">
+                    <h3>🔴 Ошибка: Копирование кода без понимания</h3>
+                    <p><strong>Проблема:</strong> Копирование решений с Stack Overflow без анализа как они работают</p>
+                    <div class="error-example">
+                        <strong>Неправильно:</strong><br>
+                        Копировать готовые функции, не понимая логику их работы
+                    </div>
+                    <div class="correct-example">
+                        <strong>Правильно:</strong><br>
+                        Анализировать каждую строку скопированного кода, тестировать и модифицировать
+                    </div>
+                </div>
+
+                <div class="card error-card">
+                    <h3>🔴 Ошибка: Отсутствие практики</h3>
+                    <p><strong>Проблема:</strong> Просмотр видео-уроков без написания собственного кода</p>
+                    <div class="error-example">
+                        <strong>Неправильно:</strong><br>
+                        Смотреть 10 часов уроков, не написав ни строчки кода
+                    </div>
+                    <div class="correct-example">
+                        <strong>Правильно:</strong><br>
+                        После каждого урока писать код самостоятельно, экспериментировать
+                    </div>
+                </div>
+
+                <div class="card error-card">
+                    <h3>🔴 Ошибка: Плохие названия переменных</h3>
+                    <p><strong>Проблема:</strong> Использование непонятных названий в коде</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Плохо</span><br>
+                        <span class="code-keyword">let</span> x = <span class="code-number">10</span>;<br>
+                        <span class="code-keyword">let</span> temp = <span class="code-string">"John"</span>;<br>
+                        <span class="code-keyword">function</span> <span class="code-function">abc</span>() { ... }
+                    </div>
+                    <div class="code-example">
+                        <span class="code-comment">// Хорошо</span><br>
+                        <span class="code-keyword">let</span> userAge = <span class="code-number">10</span>;<br>
+                        <span class="code-keyword">let</span> userName = <span class="code-string">"John"</span>;<br>
+                        <span class="code-keyword">function</span> <span class="code-function">calculateTotalPrice</span>() { ... }
+                    </div>
+                </div>
+
+                <div class="card error-card">
+                    <h3>🔴 Ошибка: Игнорирование обработки ошибок</h3>
+                    <p><strong>Проблема:</strong> Написание кода без обработки возможных исключений</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Опасно</span><br>
+                        <span class="code-keyword">let</span> data = <span class="code-function">JSON.parse</span>(userInput);<br>
+                        <span class="code-function">console.log</span>(data.name);
+                    </div>
+                    <div class="code-example">
+                        <span class="code-comment">// Безопасно</span><br>
+                        <span class="code-keyword">try</span> {<br>
+                        &nbsp;&nbsp;<span class="code-keyword">let</span> data = <span class="code-function">JSON.parse</span>(userInput);<br>
+                        &nbsp;&nbsp;<span class="code-function">console.log</span>(data.name);<br>
+                        } <span class="code-keyword">catch</span> (error) {<br>
+                        &nbsp;&nbsp;<span class="code-function">console.error</span>(<span class="code-string">"Invalid JSON:"</span>, error);<br>
+                        }
+                    </div>
+                </div>
+
+                <div class="card error-card">
+                    <h3>🔴 Ошибка: "Магические числа" в коде</h3>
+                    <p><strong>Проблема:</strong> Использование чисел без пояснения их значения</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Плохо</span><br>
+                        <span class="code-keyword">if</span> (user.age > <span class="code-number">18</span>) { ... }<br>
+                        <span class="code-keyword">const</span> timeout = <span class="code-number">30000</span>;
+                    </div>
+                    <div class="code-example">
+                        <span class="code-comment">// Хорошо</span><br>
+                        <span class="code-keyword">const</span> ADULT_AGE = <span class="code-number">18</span>;<br>
+                        <span class="code-keyword">const</span> REQUEST_TIMEOUT_MS = <span class="code-number">30000</span>;<br>
+                        <span class="code-keyword">if</span> (user.age > ADULT_AGE) { ... }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Путь обучения -->
+        <section id="learning" class="section">
+            <h2 class="section-title">🎓 Пошаговый путь обучения</h2>
+            
+            <div class="path-container">
+                <div class="path-line"></div>
+                
+                <div class="path-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Основы программирования (1-2 месяца)</h3>
+                        <ul>
+                            <li>Переменные, типы данных, операторы</li>
+                            <li>Условные конструкции (if/else, switch)</li>
+                            <li>Циклы (for, while, do-while)</li>
+                            <li>Функции и области видимости</li>
+                            <li>Базовые структуры данных (массивы, объекты)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Объектно-ориентированное программирование (1 месяц)</h3>
+                        <ul>
+                            <li>Классы и объекты</li>
+                            <li>Наследование, инкапсуляция, полиморфизм</li>
+                            <li>Интерфейсы и абстрактные классы</li>
+                            <li>Принципы SOLID</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Алгоритмы и структуры данных (2-3 месяца)</h3>
+                        <ul>
+                            <li>Сложность алгоритмов (Big O notation)</li>
+                            <li>Сортировки и поиск</li>
+                            <li>Связные списки, стеки, очереди</li>
+                            <li>Деревья и графы</li>
+                            <li>Хэш-таблицы</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Базы данных (1 месяц)</h3>
+                        <ul>
+                            <li>Реляционные базы данных (SQL)</li>
+                            <li>Нереляционные базы данных (NoSQL)</li>
+                            <li>Оптимизация запросов</li>
+                            <li>Транзакции и ACID</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="path-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Практические проекты (3-6 месяцев)</h3>
+                        <ul>
+                            <li>Создание портфолио проектов</li>
+                            <li>Работа с Git и GitHub</li>
+                            <li>Тестирование кода</li>
+                            <li>Деплой приложений</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Практические проекты -->
+        <section id="projects" class="section">
+            <h2 class="section-title">🚀 Практические проекты для портфолио</h2>
+            
+            <div class="grid-3">
+                <div class="card project-card">
+                    <h4>🎯 To-Do List Pro</h4>
+                    <p>Расширенное приложение для управления задачами с категориями и дедлайнами</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Основные функции</span><br>
+                        - Добавление/удаление задач<br>
+                        - Категории и приоритеты<br>
+                        - Фильтрация и поиск<br>
+                        - Локальное сохранение
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <h4>🌦️ Weather Dashboard</h4>
+                    <p>Панель погоды с прогнозами и картами используя OpenWeather API</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Технологии</span><br>
+                        - JavaScript/React<br>
+                        - REST API<br>
+                        - Геолокация<br>
+                        - Responsive design
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <h4>📝 Блог-платформа</h4>
+                    <p>Полнофункциональный блог с авторизацией и комментариями</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Стек технологий</span><br>
+                        - Node.js/Express<br>
+                        - MongoDB<br>
+                        - JWT аутентификация<br>
+                        - React frontend
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <h4>🛒 E-commerce Store</h4>
+                    <p>Интернет-магазин с корзиной и системой управления</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Функциональность</span><br>
+                        - Каталог товаров<br>
+                        - Корзина покупок<br>
+                        - Оформление заказа<br>
+                        - Панель администратора
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <h4>🤖 AI Чат-бот</h4>
+                    <p>Интеллектуальный помощник с NLP и интеграцией мессенджеров</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Возможности</span><br>
+                        - Обработка естественного языка<br>
+                        - Интеграция с Telegram<br>
+                        - База знаний<br>
+                        - Машинное обучение
+                    </div>
+                </div>
+
+                <div class="card project-card">
+                    <h4>📊 Аналитическая панель</h4>
+                    <p>Dashboard для визуализации данных с графиками и отчетами</p>
+                    <div class="code-example">
+                        <span class="code-comment">// Особенности</span><br>
+                        - Интерактивные графики<br>
+                        - Фильтрация данных<br>
+                        - Экспорт отчетов<br>
+                        - Real-time обновления
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Инструменты -->
+        <section id="tools" class="section">
+            <h2 class="section-title">🛠️ Необходимые инструменты</h2>
+            
+            <div class="grid-4">
+                <div class="card resource-card">
+                    <div class="icon-medium">📝</div>
+                    <h4>Редакторы кода</h4>
+                    <p>VS Code, IntelliJ IDEA, PyCharm, Sublime Text</p>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="icon-medium">🔧</div>
+                    <h4>Системы контроля версий</h4>
+                    <p>Git, GitHub, GitLab, Bitbucket</p>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="icon-medium">🐳</div>
+                    <h4>Контейнеризация</h4>
+                    <p>Docker, Kubernetes, Podman</p>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="icon-medium">☁️</div>
+                    <h4>Облачные платформы</h4>
+                    <p>AWS, Google Cloud, Microsoft Azure</p>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="icon-medium">📱</div>
+                    <h4>Мобильная разработка</h4>
+                    <p>Android Studio, Xcode, React Native CLI</p>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="icon-medium">🎨</div>
+                    <h4>Дизайн и прототипирование</h4>
+                    <p>Figma, Adobe XD, Sketch, InVision</p>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="icon-medium">⚡</div>
+                    <h4>Тестирование</h4>
+                    <p>Jest, Cypress, Selenium, Postman</p>
+                </div>
+
+                <div class="card resource-card">
+                    <div class="icon-medium">🚀</div>
+                    <h4>Производительность</h4>
+                    <p>Lighthouse, WebPageTest, GTmetrix</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Алгоритмы -->
+        <section id="algorithms" class="section">
+            <h2 class="section-title">🧠 Алгоритмы и структуры данных</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Базовые алгоритмы</h3>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li>Сортировки: пузырьком, выбором, вставками</li>
+                        <li>Быстрая сортировка и сортировка слиянием</li>
+                        <li>Поиск: линейный, бинарный</li>
+                        <li>Рекурсия и итерация</li>
+                        <li>Жадные алгоритмы</li>
+                        <li>Динамическое программирование</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Структуры данных</h3>
+                    <ul style="margin: 15px 0; padding-left: 20px;">
+                        <li>Массивы и строки</li>
+                        <li>Связные списки (односвязные, двусвязные)</li>
+                        <li>Стеки и очереди</li>
+                        <li>Деревья (бинарные, AVL, красно-черные)</li>
+                        <li>Графы и алгоритмы на графах</li>
+                        <li>Хэш-таблицы</li>
+                        <li>Кучи и приоритетные очереди</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="code-example">
+                <span class="code-comment">// Пример быстрой сортировки на Python</span><br>
+                <span class="code-keyword">def</span> <span class="code-function">quicksort</span>(arr):<br>
+                &nbsp;&nbsp;<span class="code-keyword">if</span> <span class="code-function">len</span>(arr) <= <span class="code-number">1</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> arr<br>
+                &nbsp;&nbsp;pivot = arr[<span class="code-function">len</span>(arr) // <span class="code-number">2</span>]<br>
+                &nbsp;&nbsp;left = [x <span class="code-keyword">for</span> x <span class="code-keyword">in</span> arr <span class="code-keyword">if</span> x < pivot]<br>
+                &nbsp;&nbsp;middle = [x <span class="code-keyword">for</span> x <span class="code-keyword">in</span> arr <span class="code-keyword">if</span> x == pivot]<br>
+                &nbsp;&nbsp;right = [x <span class="code-keyword">for</span> x <span class="code-keyword">in</span> arr <span class="code-keyword">if</span> x > pivot]<br>
+                &nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-function">quicksort</span>(left) + middle + <span class="code-function">quicksort</span>(right)
+            </div>
+        </section>
+
+        <!-- Карьера -->
+        <section id="career" class="section">
+            <h2 class="section-title">💼 Карьерный рост в IT</h2>
+            
+            <div class="job-roles">
+                <div class="job-role">
+                    <h4>Junior Developer</h4>
+                    <p>Начальный уровень, работа под руководством, решение простых задач</p>
+                    <p><strong>Зарплата: $800-$1500</strong></p>
+                </div>
+
+                <div class="job-role">
+                    <h4>Middle Developer</h4>
+                    <p>Самостоятельная работа, решение сложных задач, менторство джунов</p>
+                    <p><strong>Зарплата: $1500-$3000</strong></p>
+                </div>
+
+                <div class="job-role">
+                    <h4>Senior Developer</h4>
+                    <p>Архитектура систем, техническое лидерство, принятие ключевых решений</p>
+                    <p><strong>Зарплата: $3000-$6000</strong></p>
+                </div>
+
+                <div class="job-role">
+                    <h4>Team Lead</h4>
+                    <p>Управление командой, планирование проектов, найм разработчиков</p>
+                    <p><strong>Зарплата: $5000-$10000</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- О проекте -->
+        <section id="about" class="section">
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <div style="width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(45deg, var(--secondary), var(--accent)); margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 3em; color: white;">GC</div>
+                <h2 class="section-title">О проекте Golfovski Code Hub</h2>
+                <div style="font-size: 1.2em; line-height: 1.8; color: #555; text-align: left;">
+                    <p><strong>Сайт был создан программистом, который хочет помочь начинающим стать профессионалами в своём деле.</strong></p>
+                    <p style="margin-top: 20px;">Наша миссия - democratize programming education и сделать качественное IT-образование доступным для каждого. Мы создаем комплексную экосистему, где начинающие разработчики могут получить не только знания, но и практический опыт, поддержку сообщества и карьерные возможности.</p>
+                    <p style="margin-top: 15px;">Платформа объединяет лучшие мировые практики обучения, актуальные технологии и сообщество единомышленников. Мы верим, что программирование - это не просто профессия, а инструмент для создания будущего.</p>
+                    <div style="font-size: 4em; margin: 40px 0; text-align: center;">💻🌟🚀</div>
+                    <p style="text-align: center; font-weight: bold;">Присоединяйтесь к нашему сообществу и начните свой путь в IT уже сегодня!</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h3>Golfovski Code Hub</h3>
+            <p>Образовательная платформа для будущих программистов</p>
+            <p style="margin-top: 20px; color: #666;">© 2024 Golfovski Code Hub. Все материалы доступны для обучения.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Анимация при прокрутке
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                }
+            });
+        }, observerOptions);
+
+        // Наблюдаем за всеми карточками и секциями
+        document.querySelectorAll('.card, .stat-card, .path-step').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
